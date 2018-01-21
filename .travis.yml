@@ -1,0 +1,14 @@
+dist: trusty
+sudo: false
+language: c
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      g++-4
+
+script:
+  - cmake .
+  - cmake --build .
