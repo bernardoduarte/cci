@@ -5,3 +5,9 @@ project(CCI VERSION 0.1.0 LANGUAGES C)
 add_compile_options(-Wall -Wextra -Wpedantic)
 
 add_executable(helloworld main.c)
+
+enable_testing()
+
+add_executable(tester tester.c)
+
+add_test(Test tester)

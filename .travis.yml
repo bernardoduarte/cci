@@ -131,3 +131,4 @@ before_install:
 script:
   - cmake .
   - cmake --build .
+  - ctest
