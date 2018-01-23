@@ -129,6 +129,7 @@ before_install:
 
 
 script:
-  - cmake .
+  - cmake -D ENABLE_COVERAGE:BOOL=TRUE .
   - cmake --build .
   - ctest
+  - bash <(curl -s https://codecov.io/bash)
