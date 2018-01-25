@@ -4,12 +4,12 @@ project(CCI VERSION 0.1.0 LANGUAGES C)
 
 set(CMAKE_VERBOSE_MAKEFILE on)
 
-if(CMAKE_COMPILER_IS_GNUCC)
-	option(ENABLE_COVERAGE "Enable coverage reporting for gcc/clang" FALSE)
+link_libraries(-v)
 
-	if(ENABLE_COVERAGE)
-		add_compile_options(--coverage -O0 -g)
-	endif()
+option(ENABLE_COVERAGE "Enable coverage reporting for gcc/clang" FALSE)
+
+if(ENABLE_COVERAGE)
+	add_compile_options(--coverage -O0 -g)
 endif()
 
 add_compile_options(-Wall -Wextra -Wpedantic)

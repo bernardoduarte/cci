@@ -96,7 +96,8 @@ matrix:
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-3.9
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.9
           packages:
             - clang-3.9
       env:
@@ -132,4 +133,5 @@ script:
   - cmake -D ENABLE_COVERAGE:BOOL=TRUE .
   - cmake --build .
   - ctest
+  - if [[ "$CC" == *clang* ]]; then llvm-cov gcov $(find . -type f -name '*.gcda'); fi
   - bash <(curl -s https://codecov.io/bash)
